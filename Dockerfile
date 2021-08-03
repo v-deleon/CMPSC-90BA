@@ -84,7 +84,7 @@ RUN \
     jupyter nbextension enable table_beautifier/main --sys-prefix && \
     jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix 
 RUN jupyter labextension install jupyter-matplotlib@v0.9.0 --no-build
-RUN jupyter lab build --minimize=False
+#RUN jupyter lab build --minimize=False
 
 #jupyter labextension install @jupyterlab/toc
 #jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
