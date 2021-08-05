@@ -66,14 +66,13 @@ RUN \
     jupyter nbextension install --py hide_code --sys-prefix && \
     jupyter nbextension enable --py hide_code --sys-prefix && \
     jupyter serverextension enable --py hide_code --sys-prefix
-RUN jupyter labextension update --all && \
+RUN \
+    #jupyter labextension update --all && \
     rm -f /opt/conda/share/jupyter/lab/extensions/jupyter-matplotlib-0.4.* \
     rm -f /opt/conda/share/jupyter/lab/extensions/jupyterlab_bokeh-1.0.0.tgz \
     rm -f /opt/conda/share/jupyter/lab/extensions/jupyterlab_vim-0.11.0.tgz \
     rm -f /opt/conda/share/jupyter/lab/extensions/jupyter-widgets-jupyterlab-manager-1.1.0.tgz \
     rm -f /opt/conda/share/jupyter/lab/extensions/nbdime-jupyterlab-1.0.0.tgz   
-RUN jupyter labextension install jupyterlab-jupytext@v1.1.1 --no-build
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager@v1.1.0 --no-build
 RUN \
     conda update -n base conda && \
     npm install crypto codemirror && \
