@@ -43,8 +43,6 @@ RUN \
     rm -rf ~/.cache/pip ~/.cache/matplotlib ~/.cache/yarn && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
-    #Need to revisit
-    #jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-webrtc --clean
     # face_recognition 
     #conda install -c menpo dlib 
 RUN \
@@ -55,8 +53,7 @@ RUN \
     pip install nbzip && \
     jupyter serverextension enable nbzip --py --sys-prefix && \
     jupyter nbextension install nbzip --py --sys-prefix && \
-    jupyter nbextension enable nbzip --py --sys-prefix && \
-    jupyter lab build
+    jupyter nbextension enable nbzip --py --sys-prefix 
 RUN \
     ## Jupyter Classic Notebook Extensions
     jupyter nbextensions_configurator enable --sys-prefix && \
@@ -69,22 +66,25 @@ RUN \
     jupyter nbextension install --py hide_code --sys-prefix && \
     jupyter nbextension enable --py hide_code --sys-prefix && \
     jupyter serverextension enable --py hide_code --sys-prefix
-RUN jupyter labextension install jupyter-matplotlib --no-build && \ 
-    jupyter labextension update --all && \
-    rm -f /opt/conda/share/jupyter/lab/extensions/jupyter-matplotlib-0.4.*
+RUN jupyter labextension update --all && \
+    rm -f /opt/conda/share/jupyter/lab/extensions/jupyter-matplotlib-0.4.* \
+    rm -f /opt/conda/share/jupyter/lab/extensions/jupyterlab_bokeh-1.0.0.tgz \
+    rm -f /opt/conda/share/jupyter/lab/extensions/jupyterlab_vim-0.11.0.tgz \
+    rm -f /opt/conda/share/jupyter/lab/extensions/jupyter-widgets-jupyterlab-manager-1.1.0.tgz \
+    rm -f /opt/conda/share/jupyter/lab/extensions/nbdime-jupyterlab-1.0.0.tgz   
 RUN jupyter labextension install jupyterlab-jupytext@v1.1.1 --no-build
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager@v1.1.0 --no-build
-RUN jupyter labextension install nbdime-jupyterlab@v1.0.0 --no-build
 RUN \
     conda update -n base conda && \
     npm install crypto codemirror && \
     conda update jupyterlab -y && \
+    pip install matplotlib && \
     pip install jupyter_bokeh && \
+    pip install nbdime && \
     pip install jupytext --upgrade && \
+    pip install jupyterlab_vim && \
+    pip install ipympl && \
+    pip install jupyter && \
+    pip install jupyterlab && \
     jupyter nbextension enable table_beautifier/main --sys-prefix && \
     jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix 
-RUN jupyter labextension install jupyter-matplotlib@v0.9.0 --no-build
-#RUN jupyter lab build --minimize=False
-
-#jupyter labextension install @jupyterlab/toc
-#jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
