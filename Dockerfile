@@ -11,8 +11,7 @@ RUN apt-get update && \
         less \
         bsdmainutils
 USER $NB_USER
-RUN npm install crypto
-RUN npm install codemirror
+RUN npm install crypto codemirror 
 RUN \
     # Notebook extensions (TOC extension)
     pip install jupyter_contrib_nbextensions && \
@@ -21,9 +20,6 @@ RUN \
     jupyter nbextension enable table_beautifier/main --sys-prefix && \
     jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix && \
     \
-    # jupyter lab extensions
-    #jupyter labextension install @jupyterlab/toc --clean && \
-    \
     # remove cache
     rm -rf ~/.cache/pip ~/.cache/matplotlib ~/.cache/yarn && \
     fix-permissions $CONDA_DIR && \
@@ -31,7 +27,8 @@ RUN \
 ARG RPY2_CFFI_MODE=ABI
 RUN \
     pip install \
-        pandas==1.0.3 \
+        pandas \
+        #pandas==1.0.3
         cvxpy \
         nltk \
         quandl \ 
@@ -74,9 +71,9 @@ RUN \
     rm -f /opt/conda/share/jupyter/lab/extensions/jupyter-widgets-jupyterlab-manager-1.1.0.tgz \
     rm -f /opt/conda/share/jupyter/lab/extensions/nbdime-jupyterlab-1.0.0.tgz   
 RUN \
-    conda update -n base conda && \
+    #conda update -n base conda && \
     npm install crypto codemirror && \
-    conda update jupyterlab -y && \
+    #conda update jupyterlab -y && \
     pip install matplotlib && \
     pip install jupyter_bokeh && \
     pip install nbdime && \
