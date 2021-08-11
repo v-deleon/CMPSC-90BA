@@ -34,8 +34,16 @@ RUN \
         quandl \ 
         altair vega_datasets \
         otter-grader==2.2.5 \
-        pip install ipywebrtc \
-        ipympl && \
+        ipywebrtc \
+        ipympl \
+        matplotlib \
+        jupyter_bokeh \
+        nbdime \
+        jupytext --upgrade \
+        jupyterlab_vim \
+        ipympl \
+        jupyter \
+        jupyterlab \
     \
     rm -rf ~/.cache/pip ~/.cache/matplotlib ~/.cache/yarn && \
     fix-permissions $CONDA_DIR && \
@@ -74,13 +82,5 @@ RUN \
     #conda update -n base conda && \
     npm install crypto codemirror && \
     #conda update jupyterlab -y && \
-    pip install matplotlib && \
-    pip install jupyter_bokeh && \
-    pip install nbdime && \
-    pip install jupytext --upgrade && \
-    pip install jupyterlab_vim && \
-    pip install ipympl && \
-    pip install jupyter && \
-    pip install jupyterlab && \
     jupyter nbextension enable table_beautifier/main --sys-prefix && \
     jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix 
