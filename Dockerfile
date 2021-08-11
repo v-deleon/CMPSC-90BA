@@ -11,7 +11,7 @@ RUN apt-get update && \
         less \
         bsdmainutils
 USER $NB_USER
-RUN npm install crypto codemirror 
+ 
 RUN \
     # Notebook extensions (TOC extension)
     pip install jupyter_contrib_nbextensions && \
@@ -33,7 +33,7 @@ RUN \
         nltk \
         quandl \ 
         altair vega_datasets \
-        otter-grader==2.2.4 \
+        otter-grader==2.2.5 \
         pip install ipywebrtc \
         ipympl && \
     \
