@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env: 
+        DOCKER_USER: vdeleon11
+        DOCKER_PASSWORD: Jzxka81fg
+      run: |
+         docker login -u vdeleon11 -p Jzxka81fg
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag vdeleon11/cmpsc90badockerimage:v20210825
+      
+    - name: Docker push
+      run: docker push vdeleon11/cmpsc90badockerimage:v20210825
