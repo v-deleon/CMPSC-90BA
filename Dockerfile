@@ -28,7 +28,6 @@ ARG RPY2_CFFI_MODE=ABI
 RUN \
     pip install \
         pandas \
-        #pandas==1.0.3
         cvxpy \
         nltk \
         quandl \ 
@@ -36,14 +35,16 @@ RUN \
         otter-grader==2.2.5 \
         ipywebrtc \
         ipympl \
+        #ipywidgets \
         matplotlib \
         jupyter_bokeh \
         nbdime \
         jupytext --upgrade \
         jupyterlab_vim \
+        jupyterlab_widgets \
         ipympl \
         jupyter \
-        jupyterlab \
+        jupyterlab && \
     \
     rm -rf ~/.cache/pip ~/.cache/matplotlib ~/.cache/yarn && \
     fix-permissions $CONDA_DIR && \
