@@ -81,7 +81,7 @@ RUN \
     rm -f /opt/conda/share/jupyter/lab/extensions/nbdime-jupyterlab-1.0.0.tgz   
 RUN \
     #conda update -n base conda && \
-    npm install crypto codemirror && \
+    npm install -g npm@latest && \
     #conda update jupyterlab -y && \
     jupyter nbextension enable table_beautifier/main --sys-prefix && \
     jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix 
