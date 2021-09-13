@@ -9,7 +9,8 @@ RUN apt-get update && \
         powerline \
         fonts-powerline \
         less \
-        bsdmainutils
+        bsdmainutils \
+        pv
 USER $NB_USER
  
 RUN \
@@ -82,6 +83,7 @@ RUN \
 RUN \
     #conda update -n base conda && \
     npm install -g npm@latest && \
+    npm install -g codemirror && \
     #conda update jupyterlab -y && \
     jupyter nbextension enable table_beautifier/main --sys-prefix && \
     jupyter nbextension enable toggle_all_line_numbers/main --sys-prefix 
