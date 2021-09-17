@@ -73,9 +73,9 @@ jobs:
           repository: ${{github.repository}}.wiki
           path: wiki
 
-      - name: Run Post-Build Hooks
-        id: hook-all
-        run: make -C main hook-all
+    #  - name: Run Post-Build Hooks
+     #   id: hook-all
+      #  run: make -C main hook-all
 
       - name: Push Wiki to GitHub
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' || github.event_name == 'schedule'
