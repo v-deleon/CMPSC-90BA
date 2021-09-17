@@ -33,7 +33,7 @@ RUN \
         nltk \
         quandl \ 
         altair vega_datasets \
-        otter-grader==2.2.5 \
+        otter-grader==3.1.3 \
         ipywebrtc \
         ipympl \
         #ipywidgets \
