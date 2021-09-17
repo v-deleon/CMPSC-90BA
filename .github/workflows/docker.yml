@@ -5,23 +5,9 @@ on:
     # Weekly, at 03:00 on Monday UTC time
     - cron: "0 3 * * 1"
   pull_request:
-    paths-ignore:
-      - ".github/ISSUE_TEMPLATE/**"
-      - "*.md"
-      - "binder/**"
-      - "docs/**"
-      - "examples/**"
-      - ".pre-commit-config.yaml"
   push:
     branches:
       - main
-    paths-ignore:
-      - ".github/ISSUE_TEMPLATE/**"
-      - "*.md"
-      - "binder/**"
-      - "docs/**"
-      - "examples/**"
-      - ".pre-commit-config.yaml"
 
 jobs:
   build-test-publish-images:
