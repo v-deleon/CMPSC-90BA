@@ -91,6 +91,6 @@ jobs:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
 
-      - name: Push Images to DockerHub
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' || github.event_name == 'schedule'
-        run: make -C main push-all-multi
+     # - name: Push Images to DockerHub
+      #  if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' || github.event_name == 'schedule'
+       # run: make -C main push-all-multi
